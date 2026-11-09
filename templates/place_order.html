@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Place Order</title>
+</head>
+<body>
+<h1>Place Order</h1>
+<form action="{{ url_for('place_order') }}" method="POST">
+    <label for="item_name">Select Item:</label>
+    <select name="item_name" id="item_name">
+        {% for item in menu_items %}
+        <option value="{{ item[0] }}">{{ item[0] }}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <label for="quantity">Enter Quantity:</label>
+    <input type="number" name="quantity" id="quantity">
+    <br><br>
+    <input type="submit" value="Place Order">
+</form>
+<br>
+<a href="/menu" class="button">See the Menu</a><br><br>
+<a href="/view_orders" class="button">View your orders</a>
+</body>
+</html>
